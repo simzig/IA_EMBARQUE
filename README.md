@@ -19,3 +19,9 @@ Ce projet s'inscrit dans une démarche Edge AI (IA en périphérie) : traiter la
 Le développement de ce système a dû relever plusieurs défis majeurs identifiés lors de l'analyse du jeu de données AI4I 2020 :
 - Déséquilibre des classes : Le dataset présente une forte majorité de cas "sans défaillance" par rapport aux types de pannes spécifiques (TWF, HDF, PWF, OSF, RNF).
 - Qualité des données : Certaines instances présentaient des incohérences (pannes globales sans type spécifique ou classes trop peu représentées comme la RNF), nécessitant    un nettoyage approfondi.
+
+# 1.4 Solution Proposée
+
+Pour répondre à ces contraintes, notre approche se divise en deux phases distinctes :
+- Entraînement et Optimisation (PC/Cloud) : Utilisation de Python et TensorFlow/Keras pour le prétraitement (normalisation, gestion du déséquilibre via SMOTE et undersampling), la conception du modèle et l'entraînement.
+- Déploiement Embarqué (STM32) : Conversion du modèle au format h5, intégration via STM32Cube.AI, et développement de l'application C pour l'acquisition capteur et l'inférence.
