@@ -41,7 +41,7 @@ projet_IA
 └── README.md                      # Documentation technique et rapport étudiant
 ```
 
-
-<img width="400" height="250" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
-
+<p align="center">
+<img width="400" height="500" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
+</p>
 
