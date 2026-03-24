@@ -48,8 +48,6 @@ projet_IA
 
 # 3 Dataset Utilisé
 
-## 📊 Dataset utilisé
-
 Le jeu de données utilisé est le **AI4I 2020 Predictive Maintenance Dataset**, qui contient **10 000 instances** de données issues de capteurs industriels. Chaque instance représente l'état de fonctionnement d'une machine et est associée à un label indiquant si une panne s'est produite et, le cas échéant, le type de panne.
 
 ### Types de défaillances
