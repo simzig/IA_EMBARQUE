@@ -6,7 +6,7 @@ GITHUB du projet IA embarqué
    
 Ce projet a pour ambition de concevoir, optimiser et déployer un Réseau de Neurones Profonds (DNN) directement sur un microcontrôleur STM32L4R9. L'objectif final est de réaliser une tâche de maintenance prédictive en temps réel, capable d'analyser les données de capteurs industriels pour anticiper les défaillances machines avec une empreinte mémoire extrêmement faible.
 
-Conformément aux exigences pédagogiques, ce dépôt GitLab sert à la fois de documentation technique pour le déploiement et de rapport étudiant détaillant la démarche de développement, depuis le prétraitement des données jusqu'à l'inférence sur cible.
+Conformément aux exigences pédagogiques, ce dépôt GitHub sert à la fois de documentation technique pour le déploiement et de rapport étudiant détaillant la démarche de développement, depuis le prétraitement des données jusqu'à l'inférence sur cible.
 
 # 1.2 Contexte Industriel : Vers l'Edge AI
 
@@ -24,4 +24,4 @@ Le développement de ce système a dû relever plusieurs défis majeurs identifi
 
 Pour répondre à ces contraintes, notre approche se divise en deux phases distinctes :
 - Entraînement et Optimisation (PC/Cloud) : Utilisation de Python et TensorFlow/Keras pour le prétraitement (normalisation, gestion du déséquilibre via SMOTE et undersampling), la conception du modèle et l'entraînement.
-- Déploiement Embarqué (STM32) : Conversion du modèle au format h5, intégration via STM32Cube.AI, et développement de l'application C pour l'acquisition capteur et l'inférence.
+- Déploiement Embarqué (STM32) : Conversion du modèle au format .tflite, intégration via STM32Cube.AI, et développement de l'application C pour l'acquisition capteur et l'inférence.
