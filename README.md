@@ -96,3 +96,65 @@ Les colonnes `UDI`, `Product ID` et `Type` ont été exclues car elles n'ont pas
 ### Rééquilibrage
 
 Du fait du déséquilibre important (1:28), le modèle entraîné sans rééquilibrage prédisait quasi-exclusivement *"No Failure"* malgré une accuracy apparente de 98%. Un rééquilibrage par **SMOTE** a été appliqué uniquement sur le jeu d'entraînement afin d'éviter toute fuite de données (*data leakage*).
+
+
+# 4 Guide d'Exécution
+
+### Étape 1 — Entraînement et Export du Modèle (Google Colab)
+
+1. Ouvrir le notebook `TP_IA_EMBARQUEE.ipynb` dans Google Colab
+2. Exécuter l'intégralité des cellules afin d'entraîner le modèle `model_unbalanced`
+3. Le notebook génère automatiquement un fichier `modele_SMOTE.tflite`
+
+> **Note technique — Compatibilité TensorFlow**
+> L'export est réalisé au format `.tflite` plutôt que `.h5` afin de garantir la compatibilité avec STM32Cube.AI.
+> Google Colab embarque TensorFlow 2.19 avec une version de Python récente, ce qui rend impossible une rétrogradation vers TensorFlow 2.15, version requise par STM32Cube.AI pour lire les fichiers `.h5`.
+
+4. Télécharger les fichiers suivants en local :
+   - `modele_SMOTE.tflite` — le modèle entraîné
+   - `X_test.npy` / `Y_test.npy` — les données de test pour validation
+
+---
+
+### Étape 2 — Intégration du Modèle (STM32CubeMX / X-CUBE-AI)
+
+1. Créer un nouveau projet dans STM32CubeMX et activer le package **X-CUBE-AI**
+2. Dans l'interface IA, importer le fichier `my_mlp_model.tflite`
+3. Cliquer sur **Analyze** pour vérifier les ressources nécessaires :
+
+| Ressource | Consommation |
+|-----------|-------------|
+| Flash     | ~15.7 Ko    |
+| RAM       | ~2.2 Ko     |
+
+4. Cliquer sur **Generate Code** pour générer l'ossature du projet STM32CubeIDE
+
+---
+
+### Étape 3 — Programmation de l'Inférence en C (STM32CubeIDE)
+
+Le fichier `app_x-cube-ai.c` a été adapté pour gérer la communication avec le PC :
+
+| Paramètre | Détail |
+|-----------|--------|
+| **Entrée** | 20 octets — 5 variables `float32` : température air, température process, vitesse rotation, couple, usure outil |
+| **Sortie** | 5 octets — 5 probabilités de classe renvoyées en `uint8_t` |
+
+Une fonction `synchronize_UART()` a été implémentée pour assurer la synchronisation de la liaison série avec le PC.
+
+1. **Compiler** le projet (deux builds successifs recommandés)
+2. **Flasher** la carte STM32 via le bouton **Run / Debug**
+
+---
+
+### Étape 4 — Test en Temps Réel via UART
+
+Une fois la carte flashée et connectée au PC :
+
+1. Appuyer sur le bouton **RESET** de la carte STM32 pour initialiser le programme
+2. Ouvrir le script `Communication_STM32_NN.py`
+3. Modifier la variable de configuration du port série :
+```python
+PORT = "COMX"  # Remplacer X par le numéro de port de votre carte
+```
+4. Lancer le script Python — la communication UART est alors établie et l'inférence s'exécute en temps réel
