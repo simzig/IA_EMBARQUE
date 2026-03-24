@@ -1,5 +1,5 @@
-# IA_EMBARQUE
-GITHUB du projet IA embarqué
+# IA_EMBARQUEE
+GITHUB du projet IA embarquée
 
 # 1. Introduction et Contexte du Projet
 #    1.1 Objectif Général
@@ -25,3 +25,18 @@ Le développement de ce système a dû relever plusieurs défis majeurs identifi
 Pour répondre à ces contraintes, notre approche se divise en deux phases distinctes :
 - Entraînement et Optimisation (PC/Cloud) : Utilisation de Python et TensorFlow/Keras pour le prétraitement (normalisation, gestion du déséquilibre via SMOTE et undersampling), la conception du modèle et l'entraînement.
 - Déploiement Embarqué (STM32) : Conversion du modèle au format .tflite, intégration via STM32Cube.AI, et développement de l'application C pour l'acquisition capteur et l'inférence.
+
+
+# 2 Architecture du Projet
+
+├── TP_IA_EMBARQUEE.ipynb          # Notebook d'entraînement et d'export du modèle (Google Colab)
+├── Communication_STM32_NN.py       # Script de communication UART PC ↔ STM32
+├── app_x-cube-ai.c / .h            # Fichiers C générés par STM32Cube.AI + modifications UART
+├── my_mlp_model.tflite             # Modèle TensorFlow Lite optimisé pour l'embarqué
+├── xtest.npy / ytest.npy           # Données de test pour validation PC et cible
+├── ai4i2020.csv                    # Dataset brut (non inclus dans le dépôt - à télécharger)
+└── README.md                       # Documentation technique et rapport étudiant
+
+<img width="799" height="3354" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
+
+
