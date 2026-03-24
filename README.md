@@ -52,13 +52,13 @@ Le jeu de données utilisé est le **AI4I 2020 Predictive Maintenance Dataset**,
 
 ### Types de défaillances
 
-| Code | Nom complet | Description |
-|------|-------------|-------------|
-| `TWF` | Tool Wear Failure | Défaillance due à l'usure de l'outil |
-| `HDF` | Heat Dissipation Failure | Défaillance liée à une mauvaise dissipation thermique |
-| `PWF` | Power Failure | Défaillance due à un problème de puissance |
-| `OSF` | Overstrain Failure | Défaillance causée par une surcharge mécanique |
-| `RNF` | Random Failure | Défaillance aléatoire |
+| Code | Nom complet |
+|------|-------------|
+| `TWF` | Tool Wear Failure |
+| `HDF` | Heat Dissipation Failure |
+| `PWF` | Power Failure |
+| `OSF` | Overstrain Failure |
+| `RNF` | Random Failure |
 
 ### Analyse du dataset
 
