@@ -42,6 +42,6 @@ projet_IA
 ```
 
 <p align="center">
-<img width="400" height="500" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
+<img width="250" height="500" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
 </p>
 
