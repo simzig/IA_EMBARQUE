@@ -46,4 +46,55 @@ projet_IA
 </p>
 
 
+# 3 Dataset Utilisé
 
+## 📊 Dataset utilisé
+
+Le jeu de données utilisé est le **AI4I 2020 Predictive Maintenance Dataset**, qui contient **10 000 instances** de données issues de capteurs industriels. Chaque instance représente l'état de fonctionnement d'une machine et est associée à un label indiquant si une panne s'est produite et, le cas échéant, le type de panne.
+
+### Types de défaillances
+
+| Code | Nom complet | Description |
+|------|-------------|-------------|
+| `TWF` | Tool Wear Failure | Défaillance due à l'usure de l'outil |
+| `HDF` | Heat Dissipation Failure | Défaillance liée à une mauvaise dissipation thermique |
+| `PWF` | Power Failure | Défaillance due à un problème de puissance |
+| `OSF` | Overstrain Failure | Défaillance causée par une surcharge mécanique |
+| `RNF` | Random Failure | Défaillance aléatoire |
+
+### Analyse du dataset
+
+Le dataset présente un **fort déséquilibre de classes** :
+
+- **9 661 cas** sans panne (≈ 96.6%)
+- **339 cas** avec panne (≈ 3.4%), soit un ratio de 1:28
+
+Parmi les pannes, la répartition est la suivante :
+
+| Type | Occurrences |
+|------|-------------|
+| HDF  | 115 |
+| OSF  | 98  |
+| PWF  | 95  |
+| TWF  | 46  |
+| RNF  | 19  |
+
+Par ailleurs, **9 machines** présentaient une défaillance globale sans qu'aucun type de panne spécifique ne soit renseigné (*No Specific Failure*).
+
+### Features utilisées
+
+Les 5 colonnes de capteurs suivantes ont été utilisées comme entrées du modèle :
+
+| Feature | Description |
+|---------|-------------|
+| `Air temperature [K]` | Température de l'air |
+| `Process temperature [K]` | Température du processus |
+| `Rotational speed [rpm]` | Vitesse de rotation |
+| `Torque [Nm]` | Couple mécanique |
+| `Tool wear [min]` | Usure de l'outil |
+
+Les colonnes `UDI`, `Product ID` et `Type` ont été exclues car elles n'ont pas de valeur prédictive.
+
+### Rééquilibrage
+
+Du fait du déséquilibre important (1:28), le modèle entraîné sans rééquilibrage prédisait quasi-exclusivement *"No Failure"* malgré une accuracy apparente de 98%. Un rééquilibrage par **SMOTE** a été appliqué uniquement sur le jeu d'entraînement afin d'éviter toute fuite de données (*data leakage*).
