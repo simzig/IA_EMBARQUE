@@ -37,6 +37,16 @@ Pour répondre à ces contraintes, notre approche se divise en deux phases disti
 ├── ai4i2020.csv                    # Dataset brut (non inclus dans le dépôt - à télécharger)
 └── README.md                       # Documentation technique et rapport étudiant
 
+| **Fichier/Dossier** | **Rôle** | **Technologie** |
+| :--- | :--- | :--- |
+| `TP_IA_EMBARQUEE.ipynb` | Prétraitement, entraînement et export du modèle | Python / TensorFlow / Keras |
+| `my_mlp_model.tflite` | Modèle compressé pour l'embarqué | TensorFlow Lite |
+| `app-x-cube.c/.h` | Code C généré pour l'inférence sur STM32 | STM32Cube.AI |
+| `Communication_STM32_NN.py` | Interface PC ↔ STM32 via UART | Python / pyserial |
+| `X_test.npy / Y_test.npy` | Jeux de données pour validation | NumPy |
+| `CubeIDE/` | Projet complet STM32CubeIDE | C / STM32 HAL |
+
+
 <img width="799" height="3354" alt="mermaid-1774375698300" src="https://github.com/user-attachments/assets/83cdb92f-9955-4512-a66c-ca32c4a257fb" />
 
 
