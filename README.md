@@ -125,8 +125,8 @@ Du fait du déséquilibre important (1:28), le modèle entraîné sans rééquil
 
 | Ressource | Consommation |
 |-----------|-------------|
-| Flash     | ~15.7 Ko    |
-| RAM       | ~2.2 Ko     |
+| Flash     | ~20.2 KiB    |
+| RAM       | ~2.3KiB     |
 
 4. Cliquer sur **Generate Code** pour générer l'ossature du projet STM32CubeIDE
 
