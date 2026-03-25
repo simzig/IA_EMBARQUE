@@ -123,7 +123,7 @@ Du fait du déséquilibre important (1:28), le modèle entraîné sans rééquil
 2. Dans l'interface IA, importer le fichier `my_mlp_model.tflite`
 3. Cliquer sur **Analyze** pour vérifier les ressources nécessaires :
 
-4. <img width="618" height="368" alt="image" src="https://github.com/user-attachments/assets/457bc4c9-a4d1-4a07-9dda-759e3b560b53" />
+ <img width="600" height="330" alt="image" src="https://github.com/user-attachments/assets/457bc4c9-a4d1-4a07-9dda-759e3b560b53" />
 
 
 | Ressource | Consommation |
