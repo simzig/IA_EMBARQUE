@@ -162,3 +162,14 @@ Une fois la carte flashée et connectée au PC :
 PORT = "COMX"  # Remplacer X par le numéro de port de votre carte
 ```
 4. Lancer le script Python — la communication UART est alors établie et l'inférence s'exécute en temps réel
+
+
+# 5 Analyse des Résultats
+
+### 5.1 Vérification avec "Validate on Target"
+
+<img width="930" height="194" alt="image" src="https://github.com/user-attachments/assets/0a96ff65-4811-43cc-872c-f4a8be8b7ca3" />
+
+Le code C embarqué n'a introduit aucune dégradation du modèle. Ce que prédit la carte est exactement identique à ce que prédit le modèle Python.
+
+### 5.2 
