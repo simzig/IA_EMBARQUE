@@ -172,4 +172,22 @@ PORT = "COMX"  # Remplacer X par le numéro de port de votre carte
 
 Le code C embarqué n'a introduit aucune dégradation du modèle. Ce que prédit la carte est exactement identique à ce que prédit le modèle Python.
 
-### 5.2 
+### 5.2 Performances
+
+Avec ce modèle, on obtient:
+- sur le TRAIN set : 87.70%
+- sur le TEST set : 82,6%
+
+Après déploiement, on obtient toujours une Accuracy supérieure à 80%, ce qui est globalement satisfaisant.
+
+
+# 6 Conclusion
+
+Ce projet établit une preuve de concept opérationnelle, validant la capacité du microcontrôleur à exécuter des inférences de réseaux de neurones profonds pour la classification de défaillances industrielles. Un protocole d'évaluation dédié a été implémenté afin de quantifier la fidélité du modèle déployé par rapport au modèle de référence entraîné sur serveur.
+
+Voies d'optimisation et d'évolution :
+- Quantification : Migration des poids du modèle de flottants 32 bits vers des entiers 8 bits (int8). Cette optimisation vise à réduire significativement l'empreinte mémoire (ROM/RAM) et à diminuer la latence d'inférence, conformément aux techniques de compression DNN.
+- Élagage structurel (Pruning) : Application d'algorithmes d'élagage pour supprimer les connexions neuronales redondantes, allégeant la charge computationnelle sans compromettre la robustesse du modèle.
+- Déploiement Autonome : Intégration native de l'acquisition des capteurs sur le STM32. Cette évolution permettra de s'affranchir de la communication UART pour une solution de maintenance prédictive entièrement embarquée et opérationnelle en temps réel.
+
+
